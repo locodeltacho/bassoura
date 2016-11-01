@@ -24,3 +24,8 @@ Clases : Entity, Creature, Player
 Basicamente digo que Entity es todo en el juego que no sea fondo, Creature puede ser tanto enemigo como player
 y Player hereda de Creature. Es algo bastante simple, pero recordemos que esto es para poder mejorar la parte grafica
 de nuestro proyecto real
+
+---Tiles---
+Serian cada coordenada ocupable del mapa, donde voy a poner objetos como porciones de pasto, npcs, personajes, mierda, etc
+Cada Tile distinta va a tener una ID numerica distinta, que no se va a poder cambiar nunca
+De esta forma, podremos saber si nuestro personaje quiere moverse a una zona imposible de pasar, para que no lo haga
