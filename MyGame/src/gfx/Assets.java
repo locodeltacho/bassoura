@@ -17,11 +17,15 @@ public class Assets {
 	
 	
 	public static void init(){
-		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/shit2.jpg"));
-		player = sheet.crop(0, 0, width, height);
+		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/23.jpg"));
+		SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/poop.png"));
+		
+		//player = sheet.crop(0, 0, width, height);
+		player = sheet2.crop(0, 0, width, height);
 		tree = sheet.crop(width, 0, width, height);
 		grass = sheet.crop(0, height, width, height);
 		spongebob = sheet.crop(width, height, width, height);
+
 		
 	}
 	
