@@ -8,20 +8,47 @@ import tilegame.Game;
 
 public class Player extends Creature {
 	
-	/**
-	 * Player debe tener acceso al juego...
-	 */
+	
+	//Player debe tener acceso al juego...
 	private Game game;
 	
 	public Player(Game game,float x, float y) {
-		super(x, y);
+		super(x, y, 
+				Creature.DEFAULT_CREATURE_WIDTH,
+				Creature.DEFAULT_CREATURE_WIDTH
+				);
+		
 		this.game = game;
 
 	}
-
+	
+	
 	@Override
 	public void tick() {
-		//LO HAGO MEDIO RANCIO, DESPUES LO ARREGLO
+	
+		getInput();
+		move();
+	}
+	
+	private void getInput(){
+		xMove = 0;
+		yMove = 0;
+		
+		if(game.getKeyManager().isUp())
+			yMove = -speed; //Esto es porque la Y esta invertida
+		
+		if(game.getKeyManager().isDown())
+			yMove = speed;
+			
+		if(game.getKeyManager().isLeft())
+			xMove = -speed;
+		
+		if(game.getKeyManager().isRight())
+			xMove = speed;
+	}	
+	
+	/**
+	 * old Tick
 		if(game.getKeyManager().isUp())
 			y-=3;
 		if(game.getKeyManager().isDown())
@@ -30,14 +57,14 @@ public class Player extends Creature {
 			x-=3;
 		if(game.getKeyManager().isRight())
 			x+=3;
-		
-	}
+	 */
 
 	@Override
 	public void render(Graphics gr) {
 		//DE PRUEBA, DESPUES SE CAMBIA
 		//Drawimage recibe enteros... por eso el cast
-		gr.drawImage(Assets.player, (int)x, (int)y, null);
+		//Ademas puede recibir ancho y alto porque hereda de Creature
+		gr.drawImage(Assets.player, (int)x, (int)y,width,height, null);
 		
 		
 	}

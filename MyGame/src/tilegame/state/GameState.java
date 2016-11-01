@@ -16,6 +16,7 @@ public class GameState extends State{
 
 	public GameState(Game game) {
 		super(game);
+		//valores hardcodeados, que inicie en x=100 y=100
 		player = new Player(game,100,100);
 	}
 	

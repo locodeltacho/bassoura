@@ -16,7 +16,6 @@ public class Assets {
 	private static final int width = 64, height = 64;
 	
 	
-	
 	public static void init(){
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/shit2.jpg"));
 		player = sheet.crop(0, 0, width, height);

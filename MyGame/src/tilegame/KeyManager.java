@@ -41,7 +41,6 @@ public class KeyManager implements KeyListener {
 	public void keyPressed(KeyEvent id) {
 		//keycode me da el codigo de la tecla ingresada
 			keys[id.getKeyCode()] = true;
-			System.out.println("macri gato");
 	}
 	
 	//Cuando las soltas...
