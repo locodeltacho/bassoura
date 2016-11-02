@@ -21,7 +21,7 @@ public class GameState extends State{
 		super(game);
 		//valores hardcodeados, que inicie en x=100 y=100
 		player = new Player(game,100,100);
-		world = new World("C:/Users/Alex/NewWorkspace/MyGame/resources/worlds/world1.txt");
+		world = new World("MyGame/resources/worlds/world1.txt");
 	}
 	
 	@Override
@@ -38,5 +38,12 @@ public class GameState extends State{
 		player.render(gr);
 
 	}
+	
+	/**
+	 * Por las dudas
+	 * File fichero = new File("datos.txt"); 
+        System.out.println(fichero.getAbsolutePath());  
+	 * 
+	 */
 		
 }
