@@ -3,7 +3,6 @@ package tilegame.state;
 import gfx.Assets;
 
 import java.awt.Graphics;
-import java.io.File;
 
 import tilegame.Game;
 import tiles.Tile;
@@ -22,7 +21,7 @@ public class GameState extends State{
 		super(game);
 		//valores hardcodeados, que inicie en x=100 y=100
 		player = new Player(game,100,100);
-        world = new World("world1.txt");
+		world = new World("MyGame/resources/worlds/world1.txt");
 	}
 	
 	@Override
