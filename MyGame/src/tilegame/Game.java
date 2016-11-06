@@ -1,6 +1,7 @@
 package tilegame;
 
 import gfx.Assets;
+import gfx.GameCamera;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -39,6 +40,9 @@ public class Game implements Runnable {
 	//Input
 	private KeyManager keyManager;
 	
+	//Camara
+	private GameCamera gameCamera;
+	
 	public Game(String title, int width, int height){
 		//Cada vez que creo una instancia de juego, se crea
 		//automaticamente el display
@@ -56,6 +60,9 @@ public class Game implements Runnable {
 		display = new Display(title,width,height);
 		//Para poder acceder al teclado
 		display.getFrame().addKeyListener(keyManager);
+		
+		//Inicializando la camara
+		gameCamera = new GameCamera(this,0,0);
 		
 		Assets.init();
 		//Esto lo puedo hacer porque GameState hereda de State, que es abstracta
@@ -171,6 +178,10 @@ public class Game implements Runnable {
 		public KeyManager getKeyManager(){
 			return keyManager;
 		}
+		
+		public GameCamera getGameCamera(){
+			return gameCamera;
+		}
 	
 	//Start y stop inician y paran el hilo 
 	public synchronized void start(){
@@ -195,6 +206,14 @@ public class Game implements Runnable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
 	}
 	
 	/**Aclaracion del Synchronized (uff, como cuesta escribirlo)

@@ -28,7 +28,9 @@ public class World {
 			/// ojoo con el height y width, height es alto y width es ancho!
 			for (int y = 0; y < height; y++) {
 				for (int x = 0; x < width; x++) {
-					getTile(x,y).render(gr, x*Tile.TILEWIDTH, y*Tile.TILEWIDTH);
+					//negreando con cast, despues lo paso todo a int y a la mierda
+					getTile(x,y).render(gr, (int)(x*Tile.TILEWIDTH -game.getGameCamera().getxOffset()), 
+							(int)(y*Tile.TILEWIDTH - game.getGameCamera().getyOffset()));
 				}
 			}
 		}

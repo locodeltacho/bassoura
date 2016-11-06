@@ -18,7 +18,7 @@ public abstract class State {
 		//Y renderizar actualmente
 		private static State currentState = null;
 		
-		private Game game;
+		protected Game game;
 		/**
 		 * Creo una instancia Game para facilitar las cosas
 		 */

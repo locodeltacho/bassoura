@@ -22,6 +22,8 @@ public class GameState extends State{
 		//valores hardcodeados, que inicie en x=100 y=100
 		player = new Player(game,100,100);
 		world = new World(game,"MyGame/resources/worlds/world2.txt");
+		
+
 	}
 	
 	@Override

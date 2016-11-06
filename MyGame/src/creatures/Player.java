@@ -23,9 +23,11 @@ public class Player extends Creature {
 	
 	@Override
 	public void tick() {
-	
+		
 		getInput();
 		move();
+		//para que la camara se centre en el pj
+		game.getGameCamera().centerOnEntity(this);
 	}
 	
 	private void getInput(){
@@ -62,7 +64,8 @@ public class Player extends Creature {
 		//DE PRUEBA, DESPUES SE CAMBIA
 		//Drawimage recibe enteros... por eso el cast
 		//Ademas puede recibir ancho y alto porque hereda de Creature
-		gr.drawImage(Assets.player, (int)x, (int)y,width,height, null);
+		gr.drawImage(Assets.player, (int)(x - game.getGameCamera().getxOffset()),
+				(int) (y - game.getGameCamera().getyOffset()),width,height, null);
 		
 		
 	}
