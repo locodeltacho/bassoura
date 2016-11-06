@@ -25,9 +25,24 @@ public class World {
 			
 		}
 		public void render(Graphics gr){
+			/**
+			 * Añado control de render con estas 
+			 * 4 variables, que tienen la posicion de los extremos
+			 * de la pantalla visible
+			*/
+			/**
+			 * Math.max elige entre dos variables la mayor. El 0 es para el caso de tiles negativas,
+			 * es decir, que se escapan de nuestro mapa, y no nos interesan
+			 */
+			int xStart = (int)Math.max(0, game.getGameCamera().getxOffset()/Tile.TILEWIDTH);
+			//Para xEnd es lo mismo, me dice EXACTAMENTE EN QUE TILE DEJA DE RENDERIZAR
+			int xEnd = (int) Math.min(width,  ( game.getGameCamera().getxOffset()  + game.getWidth())/ Tile.TILEWIDTH +1);
+			int yStart = (int)Math.max(0, game.getGameCamera().getyOffset()/Tile.TILEHEIGHT);
+			int yEnd = (int) Math.min(height,  ( game.getGameCamera().getyOffset()  + game.getHeight())/ Tile.TILEHEIGHT +1);
+			
 			/// ojoo con el height y width, height es alto y width es ancho!
-			for (int y = 0; y < height; y++) {
-				for (int x = 0; x < width; x++) {
+			for (int y = yStart; y < yEnd; y++) {
+				for (int x = xStart; x < xEnd; x++) {
 					//negreando con cast, despues lo paso todo a int y a la mierda
 					getTile(x,y).render(gr, (int)(x*Tile.TILEWIDTH -game.getGameCamera().getxOffset()), 
 							(int)(y*Tile.TILEWIDTH - game.getGameCamera().getyOffset()));

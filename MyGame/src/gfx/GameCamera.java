@@ -24,6 +24,8 @@ public class GameCamera {
 		//El Game/2 es para que el personaje este JUSTO en la mitad de la pantalla, y no al borde
 		xOffset = e.getX() - ( game.getWidth() /2 ) + ( e.getWidth() /2 );
 		yOffset = e.getY() - ( game.getHeight() /2 ) + ( e.getHeight() /2 );
+		
+		//System.out.println("xoff"+xOffset+"yoff"+yOffset);
 	}
 	
 	
