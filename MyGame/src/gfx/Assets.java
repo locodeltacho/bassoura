@@ -10,7 +10,7 @@ public class Assets {
 	 */
 	
 	//Estos serian los tipos de imagenes a usar
-	public static BufferedImage player, grass, tree, spongebob;
+	public static BufferedImage player, grass, tree, spongebob,sand,water,lava,rock;
 	//Esto es para no hardcodear cada tamaño de imagen 
 	//Agarro y digo que todos mis sprites tienen este alto y ancho
 	private static final int width = 64, height = 64;
@@ -19,13 +19,18 @@ public class Assets {
 	public static void init(){
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/23.jpg"));
 		SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/poop.png"));
+		SpriteSheet sheet3 = new SpriteSheet(ImageLoader.loadImage("/textures/24.jpg"));
 		
 		//player = sheet.crop(0, 0, width, height);
 		player = sheet2.crop(0, 0, width, height);
 		tree = sheet.crop(width, 0, width, height);
 		grass = sheet.crop(0, height, width, height);
 		spongebob = sheet.crop(width, height, width, height);
-
+		
+		sand = sheet3.crop(0, 0, width, height);
+		water = sheet3.crop(width, 0, width, height);
+		lava = sheet3.crop(0, height, width, height);
+		rock = sheet3.crop(width, height, width, height);
 		
 	}
 	
