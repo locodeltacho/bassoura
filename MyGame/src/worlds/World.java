@@ -2,6 +2,7 @@ package worlds;
 
 import java.awt.Graphics;
 
+import tilegame.Game;
 import tiles.Tile;
 import utils.Utils;
 
@@ -13,7 +14,10 @@ public class World {
 		private int spawnX;
 		private int spawnY;
 		
-		public World(String path){
+		private Game game;
+		
+		public World(Game game,String path){
+			this.game = game;
 			loadWorld(path);
 		}
 		
