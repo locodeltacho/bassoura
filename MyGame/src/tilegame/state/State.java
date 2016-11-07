@@ -3,6 +3,7 @@ package tilegame.state;
 import java.awt.Graphics;
 
 import tilegame.Game;
+import tilegame.Handler;
 
 public abstract class State {
 		/**
@@ -18,12 +19,13 @@ public abstract class State {
 		//Y renderizar actualmente
 		private static State currentState = null;
 		
-		protected Game game;
-		/**
-		 * Creo una instancia Game para facilitar las cosas
-		 */
-		public State(Game game){
-			this.game = game;
+		
+		protected Handler handler;
+		
+		//Fuera el game, ahora es un handler bitch
+		
+		public State(Handler handler){
+			this.handler = handler;
 		}
 		
 		

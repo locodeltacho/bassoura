@@ -1,6 +1,7 @@
 package creatures;
 
 import tilegame.Game;
+import tilegame.Handler;
 import entities.Entity;
 
 public abstract class Creature extends Entity {
@@ -25,11 +26,11 @@ public abstract class Creature extends Entity {
 		protected float xMove;
 		protected float yMove;
 		
-
 		
 		
-		public Creature(Game game,float x, float y,int width, int height) {
-		super(game,x,y,width,height);
+		
+		public Creature(Handler handler,float x, float y,int width, int height) {
+		super(handler,x,y,width,height);
 		this.health = DEFAULT_HEALTH;
 		this.speed = DEFAULT_SPEED;
 		

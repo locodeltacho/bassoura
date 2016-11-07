@@ -43,6 +43,9 @@ public class Game implements Runnable {
 	//Camara
 	private GameCamera gameCamera;
 	
+	//Handler
+	private Handler handler;
+	
 	public Game(String title, int width, int height){
 		//Cada vez que creo una instancia de juego, se crea
 		//automaticamente el display
@@ -63,12 +66,13 @@ public class Game implements Runnable {
 		
 		//Inicializando la camara
 		gameCamera = new GameCamera(this,0,0);
+		handler = new Handler(this);
 		
 		Assets.init();
 		//Esto lo puedo hacer porque GameState hereda de State, que es abstracta
 		//Inicializo todos los es tados
-		gameState = new GameState(this);
-		menuState = new MenuState(this);
+		gameState = new GameState(handler);
+		menuState = new MenuState(handler);
 		State.setState(gameState);
 	}
 	

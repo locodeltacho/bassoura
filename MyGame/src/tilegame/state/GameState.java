@@ -5,6 +5,7 @@ import gfx.Assets;
 import java.awt.Graphics;
 
 import tilegame.Game;
+import tilegame.Handler;
 import tiles.Tile;
 import worlds.World;
 import creatures.Player;
@@ -17,11 +18,12 @@ public class GameState extends State{
 	private Player player;
 	private World world;
 
-	public GameState(Game game) {
-		super(game);
+	public GameState(Handler handler) {
+		super(handler);
 		//valores hardcodeados, que inicie en x=100 y=100
-		player = new Player(game,0,0);
-		world = new World(game,"MyGame/resources/worlds/world2.txt");
+		world = new World(handler,"MyGame/resources/worlds/world2.txt");
+		handler.setWorld(world);
+		player = new Player(handler,0,0);
 		
 
 	}

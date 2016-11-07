@@ -5,14 +5,15 @@ import gfx.Assets;
 import java.awt.Graphics;
 
 import tilegame.Game;
+import tilegame.Handler;
 
 public class Player extends Creature {
 	
 	
 	//Player debe tener acceso al juego...
 
-	public Player(Game game,float x, float y) {
-		super(game,x, y, 
+	public Player(Handler handler,float x, float y) {
+		super(handler,x, y, 
 				Creature.DEFAULT_CREATURE_WIDTH,
 				Creature.DEFAULT_CREATURE_WIDTH
 				);
@@ -27,23 +28,23 @@ public class Player extends Creature {
 		getInput();
 		move();
 		//para que la camara se centre en el pj
-		game.getGameCamera().centerOnEntity(this);
+		handler.getGameCamera().centerOnEntity(this);
 	}
 	
 	private void getInput(){
 		xMove = 0;
 		yMove = 0;
 		
-		if(game.getKeyManager().isUp())
+		if(handler.getKeyManager().isUp())
 			yMove = -speed; //Esto es porque la Y esta invertida
 		
-		if(game.getKeyManager().isDown())
+		if(handler.getKeyManager().isDown())
 			yMove = speed;
 			
-		if(game.getKeyManager().isLeft())
+		if(handler.getKeyManager().isLeft())
 			xMove = -speed;
 		
-		if(game.getKeyManager().isRight())
+		if(handler.getKeyManager().isRight())
 			xMove = speed;
 	}	
 	
@@ -64,8 +65,8 @@ public class Player extends Creature {
 		//DE PRUEBA, DESPUES SE CAMBIA
 		//Drawimage recibe enteros... por eso el cast
 		//Ademas puede recibir ancho y alto porque hereda de Creature
-		gr.drawImage(Assets.player, (int)(x - game.getGameCamera().getxOffset()),
-				(int) (y - game.getGameCamera().getyOffset()),width,height, null);
+		gr.drawImage(Assets.player, (int)(x - handler.getGameCamera().getxOffset()),
+				(int) (y - handler.getGameCamera().getyOffset()),width,height, null);
 		
 		
 	}
