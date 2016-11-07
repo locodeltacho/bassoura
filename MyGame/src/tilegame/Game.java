@@ -63,10 +63,11 @@ public class Game implements Runnable {
 		display = new Display(title,width,height);
 		//Para poder acceder al teclado
 		display.getFrame().addKeyListener(keyManager);
+		//el poderoso handler
+		handler = new Handler(this);
 		
 		//Inicializando la camara
-		gameCamera = new GameCamera(this,0,0);
-		handler = new Handler(this);
+		gameCamera = new GameCamera(handler,0,0);
 		
 		Assets.init();
 		//Esto lo puedo hacer porque GameState hereda de State, que es abstracta

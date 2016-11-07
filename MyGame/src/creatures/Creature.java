@@ -46,6 +46,12 @@ public abstract class Creature extends Entity {
 		moveX();
 		moveY();
 	}
+	
+	/**
+	 * En las lineas de abajo el flaco tiro alta magia, asi que voy a tener que hacer algunos calculos
+	 * para ver que concha hizo.
+	 * Resumiendo agarra cada esquina del rectangulo de colisiones y se fija si tiene una tile cerca
+	 */
 
 	public void moveX() {
 		if (xMove > 0) { // derecha
