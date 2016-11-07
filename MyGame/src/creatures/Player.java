@@ -21,10 +21,10 @@ public class Player extends Creature {
 				);
 		//coordenadas del rectangulo, le digo
 		//desde donde y hasta donde empiezan las colisiones
-//		bounds.x = 0; 
-//		bounds.y = 0;
-//		bounds.width = 64;
-//		bounds.height = 64;
+		bounds.x = 12; 
+		bounds.y = 18;
+		bounds.width = 38;
+		bounds.height = 34;
 
 	}
 	
@@ -72,7 +72,7 @@ public class Player extends Creature {
 		//DE PRUEBA, DESPUES SE CAMBIA
 		//Drawimage recibe enteros... por eso el cast
 		//Ademas puede recibir ancho y alto porque hereda de Creature
-		gr.drawImage(Assets.player, (int)(x - handler.getGameCamera().getxOffset()),
+		gr.drawImage(Assets.parrot, (int)(x - handler.getGameCamera().getxOffset()),
 				(int) (y - handler.getGameCamera().getyOffset()),width,height, null);
 		
 		gr.setColor(Color.red);
