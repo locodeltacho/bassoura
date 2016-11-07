@@ -2,6 +2,7 @@ package creatures;
 
 import tilegame.Game;
 import tilegame.Handler;
+import tiles.Tile;
 import entities.Entity;
 
 public abstract class Creature extends Entity {
@@ -43,10 +44,57 @@ public abstract class Creature extends Entity {
 		 * la manera en la que se mueve "Player"
 		 */
 		public void move(){
-			x += xMove;
-			y += yMove;
+			moveX();
+			moveY();
 		}
 		
+		public void moveX(){
+			if(xMove>0){ //derecha
+				//Esta linea magica nos dice a donde nos vamos a mover 
+				int tx = (int)((x+xMove +bounds.x +bounds.width)/Tile.TILEWIDTH);
+				
+				//Si hay una colision en la parte superior o inferior de la derecha
+				//esto va a dar true, y no vamos a poder cruzarla
+				if(!collisionWithTile(tx,(int)(y+bounds.y)/Tile.TILEHEIGHT)
+						&& !collisionWithTile(tx,(int)(y+bounds.y + bounds.height)/Tile.TILEHEIGHT)){
+					x+=xMove;
+				}
+			}else if(xMove<0){//izquierda
+				int tx = (int)((x+xMove +bounds.x )/Tile.TILEWIDTH);
+				if(!collisionWithTile(tx,(int)(y+bounds.y)/Tile.TILEHEIGHT)
+						&& !collisionWithTile(tx,(int)(y+bounds.y + bounds.height)/Tile.TILEHEIGHT)){
+					x+=xMove;
+				}
+			}
+		}
+		
+		public void moveY(){
+			if (yMove <0){ //arriba
+				int ty = (int) (y+yMove+bounds.y)/Tile.TILEHEIGHT;
+				if(!collisionWithTile((int)(x+bounds.x)/Tile.TILEWIDTH,ty)
+						&& !collisionWithTile((int)(x+bounds.x +bounds.width)/Tile.TILEWIDTH,ty)){
+					y+=yMove;
+				}
+				
+			}else if(yMove >0){//abajo
+				
+				int ty = (int) (y+yMove+bounds.y +bounds.height)/Tile.TILEHEIGHT;
+				if(!collisionWithTile((int)(x+bounds.x)/Tile.TILEWIDTH,ty)
+						&& !collisionWithTile((int)(x+bounds.x +bounds.width)/Tile.TILEWIDTH,ty)){
+					y+=yMove;
+				}
+			}
+		}
+		
+		/**
+		 * Al fin empezamos con colisiones! 
+		 * Esto me dice si en x,y hay una tile solida
+		 * 
+		 */
+		protected boolean collisionWithTile(int x, int y){
+			
+			return handler.getWorld().getTile(x,y).isSolid();
+		}
 
 		/**
 		 * Getter and setters!

@@ -56,6 +56,10 @@ public class World {
 			 * Tile.tiles[] seria el array de la clase Tiles
 			 * y tiles[][] el de nuestra clase world
 			 */
+			//Este if es para que no se bugee saliendo del mapa.
+			if (x<0 || y<0 || x>= width || y >=height)
+				return Tile.grassTile;
+			
 			Tile tl = Tile.tiles[tiles[x][y]];
 			//Esto esta rancio, es si no encuentra el iD
 			//que meta verdura

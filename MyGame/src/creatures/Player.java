@@ -2,7 +2,9 @@ package creatures;
 
 import gfx.Assets;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 import tilegame.Game;
 import tilegame.Handler;
@@ -17,7 +19,12 @@ public class Player extends Creature {
 				Creature.DEFAULT_CREATURE_WIDTH,
 				Creature.DEFAULT_CREATURE_WIDTH
 				);
-		
+		//coordenadas del rectangulo, le digo
+		//desde donde y hasta donde empiezan las colisiones
+//		bounds.x = 0; 
+//		bounds.y = 0;
+//		bounds.width = 64;
+//		bounds.height = 64;
 
 	}
 	
@@ -68,7 +75,9 @@ public class Player extends Creature {
 		gr.drawImage(Assets.player, (int)(x - handler.getGameCamera().getxOffset()),
 				(int) (y - handler.getGameCamera().getyOffset()),width,height, null);
 		
-		
+		gr.setColor(Color.red);
+//		gr.fillRect((int)(x+bounds.x - handler.getGameCamera().getxOffset()), 
+//				(int)(y+bounds.y - handler.getGameCamera().getyOffset()), bounds.width, bounds.height);
 	}
 		
 }

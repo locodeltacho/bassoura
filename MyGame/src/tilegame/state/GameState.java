@@ -23,7 +23,7 @@ public class GameState extends State{
 		//valores hardcodeados, que inicie en x=100 y=100
 		world = new World(handler,"MyGame/resources/worlds/world2.txt");
 		handler.setWorld(world);
-		player = new Player(handler,0,0);
+		player = new Player(handler,64,64);
 		
 
 	}
